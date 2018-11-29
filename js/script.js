@@ -6,23 +6,74 @@
 /* global $ */
 
 var randomNumber = 0;
-var userChoice = [];
-var computerChoice = [];
-var winner= [];
+var userChoice = 0;
+var cChoice = 0;
 
 // DOCUMENT READY FUNCTION BELOW
 $("#shoot").click(function(){
-    $("#userChoice").text($("input").val());
-    randomNumber = Math.floor(Math.random() * 8);
-    userChoice = $("input").val();
     
-    if(randomNumber <= 2){
-        computerChoice = "Rock";
-    }else if(randomNumber <= 5 && randomNumber > 2){
-        computerChoice = "Paper";
-    }else if(randomNumber <= 6 && randomNumber > 5){
-        computerChoice = "Scissors";
+    $("#userChoice").text($("input").val().toLowerCase());
+
+    userChoice = $("input").val().toLowerCase();
+     
+     //var choices=['Rock', 'Paper', 'Scissors'];
+        
+    randomNumber = Math.floor(Math.random() * 3);
+    
+    if(randomNumber === 0){
+        cChoice = "rock";
+        $("#computerChoice").text("rock");
+        
+    }else if(randomNumber === 1){
+        cChoice = "paper";
+        $("#computerChoice").text("paper");
+        
+    }else if(randomNumber === 2){
+        cChoice = "scissors";
+        $("#computerChoice").text("scissors");
     }
+    
+    if(userChoice === "rock" && cChoice === "rock"){
+        $("#winner").text("It's a tie!!");
+        
+    } else if(userChoice === "scissors" && cChoice === "scissors"){
+        $("#winner").text("It's a tie!!");
+        
+    }else if(userChoice === "paper" && cChoice === "paper"){
+        $("#winner").text("It's a tie!!");
+        
+    }else if(userChoice === "rock" && cChoice === "paper"){
+        $("#winner").text("Computer Wins!!");
+        var robo = $("<img>").attr("src", "http://s.numrush.nl/wp-content/uploads/2015/06/Orig.src_.Susanne.Posel_.Daily_.News-human.robot_.lovelace.turing02_occupycorporatism.jpg");
+        $("body").append(robo);
+        
+    }else if(userChoice === "paper" && cChoice === "scissors"){
+        $("#winner").text("Computer Wins!!");
+        var robo = $("<img>").attr("src", "http://s.numrush.nl/wp-content/uploads/2015/06/Orig.src_.Susanne.Posel_.Daily_.News-human.robot_.lovelace.turing02_occupycorporatism.jpg");
+        $("body").append(robo);
+        
+    }else if(userChoice === "scissors" && cChoice === "rock"){
+        $("#winner").text("Computer Wins!!");
+        var robo = $("<img>").attr("src", "http://s.numrush.nl/wp-content/uploads/2015/06/Orig.src_.Susanne.Posel_.Daily_.News-human.robot_.lovelace.turing02_occupycorporatism.jpg");
+        $("body").append(robo);
+        
+    }else if(userChoice === "rock" && cChoice === "scissors"){
+        $("#winner").text("You Win!!");
+        var you = $("<img>").attr("src", "http://rs105.pbsrc.com/albums/m237/hrhqueencat/Congratulations/congrats-1.gif~c200");
+        $("body").append(you);
+        
+    }else if(userChoice === "paper" && cChoice === "rock"){
+        $("#winner").text("You Win!!");
+        var you = $("<img>").attr("src", "http://rs105.pbsrc.com/albums/m237/hrhqueencat/Congratulations/congrats-1.gif~c200");
+        $("body").append(you);
+        
+    }else if(userChoice === "scissors" && cChoice === "paper"){
+        $("#winner").text("You Win!!");
+        var you = $("<img>").attr("src", "http://rs105.pbsrc.com/albums/m237/hrhqueencat/Congratulations/congrats-1.gif~c200");
+        $("body").append(you);
+        
+    }
+    
     
 });
 
