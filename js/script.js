@@ -5,16 +5,18 @@
 //GLOBAL VARIABLES
 /* global $ */
 
-var randomNumber = 0;
-var userChoice = 0;
-var cChoice = 0;
+var randomNumber;
+var userChoice;
+var cChoice;
+var initialUserScore = 0;
+var initialComputerScore = 0;
+
 
 // DOCUMENT READY FUNCTION BELOW
 $("#shoot").click(function(){
-    
-    $("#userChoice").text($("input").val().toLowerCase());
 
-    userChoice = $("input").val().toLowerCase();
+    $("#userChoice").text($("input").val().toLowerCase());
+     userChoice = $("input").val().toLowerCase(); 
      
      //var choices=['Rock', 'Paper', 'Scissors'];
         
@@ -46,16 +48,28 @@ $("#shoot").click(function(){
         $("#winner").text("Computer Wins!!");
         var robo = $("<img>").attr("src", "http://s.numrush.nl/wp-content/uploads/2015/06/Orig.src_.Susanne.Posel_.Daily_.News-human.robot_.lovelace.turing02_occupycorporatism.jpg");
         $("body").append(robo);
+       
+       initialComputerScore++;
         
+       $("#computerScore").append(initialComputerScore);
+
     }else if(userChoice === "paper" && cChoice === "scissors"){
         $("#winner").text("Computer Wins!!");
         var robo = $("<img>").attr("src", "http://s.numrush.nl/wp-content/uploads/2015/06/Orig.src_.Susanne.Posel_.Daily_.News-human.robot_.lovelace.turing02_occupycorporatism.jpg");
         $("body").append(robo);
         
+        initialComputerScore++;
+        
+        $("#computerScore").append(initialComputerScore);
+        
     }else if(userChoice === "scissors" && cChoice === "rock"){
         $("#winner").text("Computer Wins!!");
         var robo = $("<img>").attr("src", "http://s.numrush.nl/wp-content/uploads/2015/06/Orig.src_.Susanne.Posel_.Daily_.News-human.robot_.lovelace.turing02_occupycorporatism.jpg");
         $("body").append(robo);
+        
+        initialComputerScore++;
+        
+        $("#computerScore").append(initialComputerScore);
         
     }else if(userChoice === "rock" && cChoice === "scissors"){
         $("#winner").text("You Win!!");
